@@ -102,8 +102,8 @@ export default function InteractiveMouse() {
 
   return (
     <>
-      {/* Camada das partículas corrigida com z-[9999] */}
-      <div className="pointer-events-none fixed top-0 left-0 w-screen h-screen z-[9999] overflow-hidden hidden lg:block">
+      {/* Camada das partículas */}
+      <div className="pointer-events-none fixed top-0 left-0 w-screen h-screen z-50 overflow-hidden hidden lg:block">
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
@@ -114,7 +114,7 @@ export default function InteractiveMouse() {
               y: particle.y + (Math.random() * 20 - 10),
               x: particle.x + (Math.random() * 20 - 10)
             }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6 }}
             className="absolute rounded-full pointer-events-none mix-blend-screen blur-[0.5px]"
             style={{
               width: particle.size,
@@ -127,16 +127,16 @@ export default function InteractiveMouse() {
         ))}
       </div>
 
-      {/* Camada do boneco principal corrigida com z-[9999] */}
+      {/* Círculo Principal do Mouse com transição corrigida para a Vercel */}
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[9999] flex items-center justify-center rounded-full backdrop-blur-[1px] hidden lg:flex"
+        className="pointer-events-none fixed left-0 top-0 z-50 flex items-center justify-center rounded-full backdrop-blur-[1px] hidden lg:flex"
         style={{
           x: cursorX,
           y: cursorY,
         }}
         animate={cursorType}
         variants={variants}
-        transition={{ type: "easeOut", duration: 0.1 }}
+        transition={{ duration: 0.1 }}
       >
         {cursorType === "project" && (
           <motion.div 
