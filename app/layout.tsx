@@ -21,22 +21,22 @@ export default function RootLayout({
 }) {
   return (
     <html
-  lang="pt-BR"
-  suppressHydrationWarning
-  className={cn("antialiased w-full min-h-screen", fontMono.variable, "font-sans", geist.variable)}
->
-  <body className="relative w-full min-h-screen lg:cursor-none bg-background text-foreground antialiased overflow-x-hidden">
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="dark"
-      enableSystem
-      disableTransitionOnChange
+      lang="pt-BR"
+      suppressHydrationWarning
+      className={cn("antialiased w-full min-h-screen", fontMono.variable, "font-sans", geist.variable)}
     >
-      <InteractiveMouse />
-      {children}
-    </ThemeProvider>
-  </body>
-</html>
-
+      <body className="relative w-full min-h-screen lg:cursor-none bg-background text-foreground antialiased overflow-x-hidden">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* O seu componente do mouse com partículas fica ativo aqui */}
+          <InteractiveMouse />
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
   )
 }
