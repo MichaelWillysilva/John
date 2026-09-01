@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, Terminal, User, Code2, Globe, Database, Layout } from "lucide-react";
+import { ArrowUpRight, Mail, Terminal, User, MessageCircle, Code2, Globe } from "lucide-react";
 import React from "react";
 import { SplineSceneBasic } from "../components/ui/demo";
 
@@ -50,9 +50,7 @@ export default function Home() {
 
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_30%,#000_70%,transparent_100%)] pointer-events-none" />
 
-        <div className="max-w-4xl text-center relative z-10 p-6 pointer-events-none mt-12">
-          <motion.div>
-          </motion.div>
+        <div className="max-w-4xl text-center relative z-10 p-6 mt-12">
           <motion.p
             variants={fadeInUp}
             initial="initial"
@@ -61,17 +59,19 @@ export default function Home() {
             className="mt-6 text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed"
           >
             Olá, me chamo <span className="text-white font-semibold">Johnatan Felipe Silva</span>.
+            <br />
             <span className="inline-block mt-2">
-    Especialista em Atendimento, Ouvidoria e Operações com mais de 10 anos de experiência na resolução de demandas complexas e otimização de processos no setor financeiro. Focado em excelência na experiência do cliente, governança de SLAs e mediação de conflitos.
-  </span>
+              Especialista em Atendimento, Ouvidoria e Operações com mais de 10 anos de experiência na resolução de demandas complexas e otimização de processos no setor financeiro. Focado em excelência na experiência do cliente, governança de SLAs e mediação de conflitos.
+            </span>
           </motion.p>
 
+          {/* Botões de Ação */}
           <motion.div
             variants={fadeInUp}
             initial="initial"
             animate="animate"
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-4 pointer-events-auto"
+            className="mt-10 flex flex-wrap items-center justify-center gap-4 relative z-20"
           >
             <a
               href="#experiencia"
@@ -82,28 +82,45 @@ export default function Home() {
             </a>
 
             <a
-              href="mailto:johnatanfelipe.s@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=johnatanfelipe.s@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center rounded-lg border border-neutral-800 bg-neutral-950/50 px-6 font-medium text-white transition-all hover:bg-neutral-900 backdrop-blur-sm"
             >
               Vamos conversar
             </a>
           </motion.div>
 
+          {/* Redes Sociais */}
           <motion.div
             variants={fadeInUp}
             initial="initial"
             animate="animate"
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 flex items-center justify-center gap-6 text-neutral-400 pointer-events-auto"
+            className="mt-16 flex items-center justify-center gap-6 text-neutral-400 relative z-20"
           >
-            <a href="https://linkedin.com/in/johnatanfelipesilva" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white transition-colors p-2 text-sm font-medium">
+            <a href="https://www.linkedin.com/in/johnatanfelipesil/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white transition-colors p-2 text-sm font-medium">
               <User size={18} />
               <span>LinkedIn</span>
             </a>
-            <a href="mailto:johnatanfelipe.s@gmail.com" className="flex items-center gap-1.5 hover:text-white transition-colors p-2 text-sm font-medium">
+            
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=johnatanfelipe.s@gmail.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-1.5 hover:text-white transition-colors p-2 text-sm font-medium">
               <Mail size={18} />
               <span>E-mail</span>
             </a>
+
+            <a 
+  href="https://api.whatsapp.com/send?phone=553191641683&text=Ol%C3%A1,%20gostei%20do%20seu%20curr%C3%ADculo,%20vamos%20conversar%20?" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors p-2 text-sm font-medium"
+>
+  <MessageCircle size={18} />
+  <span>WhatsApp</span>
+</a>
           </motion.div>
         </div>
       </section>
@@ -155,33 +172,25 @@ export default function Home() {
           ))}
         </div>
       </section>
-{/* ---------- ADICIONE ESTE BLOCO AQUI ---------- */}
+
       {/* RODAPÉ (FOOTER) TECNOLÓGICO */}
       <footer className="relative w-full max-w-5xl px-4 py-10 mt-16 z-10 border-t border-neutral-900 bg-black">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                   
-          {/* Lado Direito: Créditos com efeito tecnológico */}
           <div className="flex items-center gap-2 group">
-            {/* Ícone sutil de código/terminal */}
             <Terminal size={14} className="text-neutral-700 transition-colors group-hover:text-blue-500"/>
-            
             <p className="text-sm font-mono text-neutral-400 tracking-tight transition-colors group-hover:text-white">
-          @ 2026 Desenvolvido por{" "}
+              © 2026 Desenvolvido por{" "}
               <span className="font-semibold text-neutral-200 transition-colors group-hover:text-blue-400">
                 Michael Willy Silva
               </span>
             </p>
-            
-            {/* Um cursor piscando sutilmente no final (opcional, mas tech) */}
             <span className="w-1.5 h-3.5 bg-blue-500 animate-pulse rounded-sm opacity-0 group-hover:opacity-100 transition-opacity ml-1"></span>
           </div>
         </div>
 
-          {/* Grid de fundo opcional, apenas no footer, para mais textura */}
         <div className="absolute inset-0 -z-10 bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_10%,transparent_100%)] opacity-20 pointer-events-none" 
              style={{ backgroundImage: 'linear-gradient(to right, #1f2937 1px, transparent 1px), linear-gradient(to bottom, #1f2937 1px, transparent 1px)' }}/>
       </footer>
-      {/* ----------------------------------------------- */}
     </main>
   );
 }
