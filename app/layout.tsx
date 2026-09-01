@@ -1,10 +1,13 @@
 import { Geist, Geist_Mono } from "next/font/google"
-
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import InteractiveMouse from "@/components/InteractiveMouse"
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
+const geist = Geist({
+  subsets: ['latin'],
+  variable: '--font-sans'
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -13,18 +16,27 @@ const fontMono = Geist_Mono({
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+  lang="pt-BR"
+  suppressHydrationWarning
+  className={cn("antialiased w-full min-h-screen", fontMono.variable, "font-sans", geist.variable)}
+>
+  <body className="relative w-full min-h-screen lg:cursor-none bg-background text-foreground antialiased overflow-x-hidden">
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      enableSystem
+      disableTransitionOnChange
     >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
-    </html>
+      <InteractiveMouse />
+      {children}
+    </ThemeProvider>
+  </body>
+</html>
+
   )
 }
